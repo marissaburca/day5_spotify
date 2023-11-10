@@ -1,5 +1,6 @@
 import { GET_LOCAL } from "../actions";
 
+
 const initialState = {
   content: [],
 };
@@ -9,8 +10,9 @@ const staticSongsReducer = (state = initialState, action) => {
     case GET_LOCAL:
       return {
         ...state,
-        content: action.payload,
+       content : action.payload,
       };
+ 
     default:
       return state;
   }

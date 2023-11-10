@@ -1,7 +1,7 @@
 import { Col, Navbar, Nav } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
 import { useDispatch } from 'react-redux';
-import searchReducer from "../redux/reducers/search";
+import { getNewSearchAction } from "../redux/actions";
 import { useState } from "react";
 import {BsFillHouseDoorFill, BsBookFill} from "react-icons/bs"
 
@@ -14,6 +14,11 @@ const Sidebar = () => {
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
   };
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    dispatch(getNewSearchAction(searchValue));
+  };
+
 
   return (
     <Col className="col col-2">
@@ -56,7 +61,7 @@ const Sidebar = () => {
                   <BsBookFill className="fs-4"/>&nbsp; Your Library
                 </Nav.Link>
                 <li>
-                  <form className="input-group mt-3">
+                  <form className="input-group mt-3" onSubmit={handleFormSubmit}>
                     <input
                       type="text"
                       className="form-control"
@@ -72,9 +77,7 @@ const Sidebar = () => {
                       <button
                         className="btn btn-outline-secondary btn-sm h-100"
                         type="submit"
-                        onClick={()=>{
-                          dispatch(searchReducer(searchValue))
-                        }}
+                       
                       >
                         GO
                       </button>

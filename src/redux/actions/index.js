@@ -2,9 +2,15 @@ export const GET_SEARCH = 'GET_SEARCH'
 export const GET_LOCAL = 'GET_LOCAL' 
 export const SET_DETAILS= 'SET_DETAILS'
 
+export const getDetailsAction= (song)=>{
+    return {
+        type: SET_DETAILS,
+        payload : song
+    }
 
+}
 
-export const getLocalShownAction = (artistName) =>{
+export const getLocalAction = (artistName) =>{
     return async (dispatch) => {
         try {
             const res = await fetch(
@@ -35,11 +41,12 @@ export const getLocalShownAction = (artistName) =>{
         }
     }    
 
-export const getNewSearchAction = (query)=>{
+export const getNewSearchAction = (searchValue)=>{
+    console.log(searchValue)
  
     return async (dispatch) => {
         try {
-       const res = await fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q={query}');
+       const res = await fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q={query}' + searchValue);
        if (res.ok) {
          const { data } = await res.json()
          console.log(data)
