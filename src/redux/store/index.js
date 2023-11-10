@@ -3,7 +3,7 @@ import searchReducer from "../reducers/search";
 import staticSongsReducer from "../reducers/local";
  
 const mainReducer= combineReducers({
-     searched :searchReducer,
+     searched : searchReducer,
      static : staticSongsReducer
 })
 

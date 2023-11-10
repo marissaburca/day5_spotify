@@ -5,7 +5,7 @@ import { getLocalShownAction } from "../redux/actions";
 
 const AlbumCard = (artistName) => {
   const dispatch = useDispatch();
-  const album = useSelector((state) => state.album);
+  const album = useSelector((state) => state.static.content);
   console.log(artistName);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const AlbumCard = (artistName) => {
 
   return (
     <>
-      {album.map((song) => {
+      {album.slice(0,4).map((song, i) => {
         <Col class="col text-center" id={song.id}>
           <img class="img-fluid" src={song.album.cover_medium} alt="track" />
           <p>

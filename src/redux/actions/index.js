@@ -1,5 +1,6 @@
 export const GET_SEARCH = 'GET_SEARCH'
 export const GET_LOCAL = 'GET_LOCAL' 
+export const SET_DETAILS= 'SET_DETAILS'
 
 
 
@@ -10,7 +11,6 @@ export const getLocalShownAction = (artistName) =>{
                     'https://striveschool-api.herokuapp.com/api/deezer/search?q=' +
                       artistName,
                     {
-                      method: 'GET',
                       headers: {
                         'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com',
                         'X-RapidAPI-Key':
@@ -23,7 +23,7 @@ export const getLocalShownAction = (artistName) =>{
               console.log(data)
               dispatch({
                 type: GET_LOCAL,
-                payload: data
+                payload: data.data
               })
             }
             else {
@@ -45,7 +45,7 @@ export const getNewSearchAction = (query)=>{
          console.log(data)
           dispatch({
           type: GET_SEARCH,
-          payload: data,
+          payload: data.data
          })
        } else {
          throw new Error("Error fetching results");
