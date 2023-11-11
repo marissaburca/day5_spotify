@@ -21,7 +21,7 @@ const Sidebar = () => {
 
 
   return (
-    <Col className="col col-2">
+    <Col className="col-lg-3">
       <Navbar
         className="navbar navbar-expand-md fixed-left justify-content-between"
         id="sidebar"
@@ -88,14 +88,14 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        <div className="nav-btn">
-          <button className="btn signup-btn bg-white rounded-pill" type="button">
+        <div className=" d-flex flex-column align-items-center w-100">
+          <button className="btn signup-btn bg-white rounded-pill " type="button">
             Sign Up
           </button>
           <button className="btn login-btn rounded-pill text-white border" type="button">
             Login
           </button>
-          <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
+          <div><a href="#">Cookie Policy</a> |<a href="#"> Privacy</a></div>
         </div>
       </Navbar>
     </Col>

@@ -1,8 +1,7 @@
 import { SET_DETAILS } from "../actions";
 
-
 const initialState = {
-  details: [],
+  track: [],
 };
 
 const setDetailsReducer = (state = initialState, action) => {
@@ -10,9 +9,9 @@ const setDetailsReducer = (state = initialState, action) => {
     case SET_DETAILS:
       return {
         ...state,
-        details : action.payload,
+        track: action.payload,
       };
- 
+
     default:
       return state;
   }
